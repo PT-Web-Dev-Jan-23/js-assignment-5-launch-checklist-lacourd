@@ -42,7 +42,46 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         alert("Please enter the cargo mass in kilograms");
         return
     }
+    if (pilotValidation !== "Not a Number") {
+        alert("Please enter the pilot name without call sign")
+        return
+    }
+    if (copilotValidation !== "Not a Number") {
+        alert("Please enter the copilot name without call sign")
+        return
+    }
     
+    let pilotStatus = document.getElementById("pilotStatus");
+    let copilotStatus = document.getElementById("copilotStatus");
+    let fuelStatus = document.getElementById("fuelStatus");
+    let cargoStatus = document.getElementById("cargoStatus");
+
+    list.style.visibility = "visible";
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch.`;
+    copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch.`;
+    let launchStatusHeading = document.getElementById("launchStatus");
+
+    if (parseInt(fuelLevel) < 10000) {
+        launchStatusHeading.style.color = "red"
+        launchStatusHeading.innerHTML = "Shuttle Not Ready for Launch";
+        fuelStatus.innerHTML = "Fuel level too low for launch."
+    }
+    if (parseInt(fuelLevel) >= 10000) {
+        fuelStatus.innerHTML = "Fuel level high enough for launch."
+    }
+    if (parseInt(cargoLevel) > 10000) {
+        launchStatusHeading.style.color = "red"
+        launchStatusHeading.innerHTML = "Shuttle Not Ready for Launch";
+        cargoStatus.innerHTML = "Cargo mass too high for launch."
+    }
+    if (parseInt(cargoLevel) <= 10000) {
+        cargoStatus.innerHTML = "Cargo mass low enough for launch."
+    }
+    if (parseInt(cargoLevel) <= 10000 && parseInt(fuelLevel) >= 10000) {
+        launchStatusHeading.style.color = "green"
+        launchStatusHeading.innerHTML = "Shuttle Ready for Launch";
+    }
+
 }
 
 async function myFetch() {
