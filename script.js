@@ -1,10 +1,7 @@
-// Write your JavaScript code here!
-
-
-
-
 window.addEventListener("load", function() {
     let form = document.querySelector("form");
+    let list = document.getElementById("faultyItems");
+    list.style.visibility = "hidden";
     form.addEventListener("submit", function(event) {
         let list = document.getElementById("faultyItems");
         let pilot = document.querySelector("input[name=pilotName]");

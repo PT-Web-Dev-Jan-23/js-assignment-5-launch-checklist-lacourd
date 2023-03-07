@@ -1,4 +1,3 @@
-// Write your helper functions here!
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
@@ -23,8 +22,7 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    console.log("Something correct has happened!");
-    
+        
     let pilotValidation = validateInput(pilot);
     let copilotValidation = validateInput(copilot);
     let fuelLevelValidation = validateInput(fuelLevel);
