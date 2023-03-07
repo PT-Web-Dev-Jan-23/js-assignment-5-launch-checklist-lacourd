@@ -47,7 +47,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         return
     }
     if (copilotValidation !== "Not a Number") {
-        alert("Please enter the copilot name without call sign")
+        alert("Please enter the copilot name without call sign");
         return
     }
     
@@ -57,28 +57,28 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let cargoStatus = document.getElementById("cargoStatus");
 
     list.style.visibility = "visible";
-    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch.`;
-    copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch.`;
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+    copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch`;
     let launchStatusHeading = document.getElementById("launchStatus");
 
     if (parseInt(fuelLevel) < 10000) {
-        launchStatusHeading.style.color = "red"
+        launchStatusHeading.style.color = "rgb(199, 37, 78)";
         launchStatusHeading.innerHTML = "Shuttle Not Ready for Launch";
-        fuelStatus.innerHTML = "Fuel level too low for launch."
+        fuelStatus.innerHTML = "Fuel level too low for launch";
     }
     if (parseInt(fuelLevel) >= 10000) {
-        fuelStatus.innerHTML = "Fuel level high enough for launch."
+        fuelStatus.innerHTML = "Fuel level high enough for launch";
     }
     if (parseInt(cargoLevel) > 10000) {
-        launchStatusHeading.style.color = "red"
+        launchStatusHeading.style.color = "rgb(199, 37, 78)";
         launchStatusHeading.innerHTML = "Shuttle Not Ready for Launch";
-        cargoStatus.innerHTML = "Cargo mass too high for launch."
+        cargoStatus.innerHTML = "Cargo mass too high for launch";
     }
     if (parseInt(cargoLevel) <= 10000) {
-        cargoStatus.innerHTML = "Cargo mass low enough for launch."
+        cargoStatus.innerHTML = "Cargo mass low enough for launch";
     }
     if (parseInt(cargoLevel) <= 10000 && parseInt(fuelLevel) >= 10000) {
-        launchStatusHeading.style.color = "green"
+        launchStatusHeading.style.color = "rgb(65, 159, 106)";
         launchStatusHeading.innerHTML = "Shuttle Ready for Launch";
     }
 
