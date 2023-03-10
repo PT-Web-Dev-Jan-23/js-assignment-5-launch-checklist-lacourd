@@ -30,34 +30,34 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
     if (pilotValidation === "Empty" || copilotValidation === "Empty" || fuelLevelValidation === "Empty" || cargoLevelValidation === "Empty") {
         alert("All fields are required!");
-        return
+        // return
     }
     if (fuelLevelValidation !== "Is a Number") {
         alert("Please enter the amount of fuel in Liters");
-        return
+        // return
     }
     if (cargoLevelValidation !== "Is a Number") {
         alert("Please enter the cargo mass in kilograms");
-        return
+        // return
     }
     if (pilotValidation !== "Not a Number") {
         alert("Please enter the pilot name without call sign")
-        return
+        // return
     }
     if (copilotValidation !== "Not a Number") {
         alert("Please enter the copilot name without call sign");
-        return
+        // return
     }
     
     let pilotStatus = document.getElementById("pilotStatus");
     let copilotStatus = document.getElementById("copilotStatus");
     let fuelStatus = document.getElementById("fuelStatus");
     let cargoStatus = document.getElementById("cargoStatus");
+    let launchStatusHeading = document.getElementById("launchStatus");
 
     list.style.visibility = "visible";
     pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
     copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
-    let launchStatusHeading = document.getElementById("launchStatus");
 
     if (parseInt(fuelLevel) < 10000) {
         launchStatusHeading.style.color = "rgb(199, 37, 78)";
